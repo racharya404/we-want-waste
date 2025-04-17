@@ -1,0 +1,251 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 221 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-app-dark text-foreground;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  .step-active {
+    @apply text-brand-blue font-medium;
+  }
+
+  .step-inactive {
+    @apply text-[#6b6b6b] font-normal;
+  }
+
+  .step-completed {
+    @apply text-brand-blue font-medium;
+  }
+
+  .step-line {
+    @apply h-0.5;
+  }
+
+  .step-line-active {
+    @apply bg-brand-blue;
+  }
+
+  .step-line-inactive {
+    @apply bg-[#6b6b6b]/30;
+  }
+
+  .input-field {
+    @apply w-full bg-app-dark-card text-app-active-text px-3 py-2 sm:px-4 sm:py-3 rounded-md border border-app-dark-border focus:border-brand-blue focus:outline-none text-sm sm:text-base;
+  }
+
+  .card-item {
+    @apply bg-app-dark-card border border-app-card-border rounded-lg p-3 sm:p-6;
+  }
+
+  .card-item-selected {
+    @apply bg-app-dark-card border-2 border-app-selection-border rounded-lg p-3 sm:p-6;
+  }
+
+  .calendar-day {
+    @apply w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center mx-auto;
+  }
+
+  .calendar-day-active {
+    @apply bg-brand-blue text-white;
+  }
+
+  .calendar-day-disabled {
+    @apply text-gray-600;
+  }
+
+  .calendar-day-available {
+    @apply hover:bg-brand-blue/20 cursor-pointer;
+  }
+
+  /* Sticky footer styles */
+  .sticky-footer {
+    @apply fixed bottom-0 left-0 right-0 bg-app-dark border-t border-app-dark-border z-40 py-1 sm:py-2;
+  }
+
+  .sticky-footer-content {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .footer-summary {
+    @apply mb-3 pb-3 border-b border-app-dark-border;
+  }
+
+  /* Add spacing to the bottom of the main content area */
+  .content-with-footer {
+    @apply pb-24 sm:pb-32;
+  }
+
+  /* Accessibility improvements */
+  :focus {
+    @apply outline-2 outline-offset-2 outline-brand-blue;
+  }
+
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+  }
+
+  /* Skip to content link for keyboard users */
+  .skip-to-content {
+    @apply absolute top-0 left-0 z-50 opacity-0 bg-app-dark text-white py-2 px-4 transform -translate-y-full focus:translate-y-0 focus:opacity-100 transition-transform duration-200;
+  }
+
+  /* Responsive typography */
+  .text-responsive {
+    @apply text-sm sm:text-base lg:text-lg;
+  }
+
+  .heading-responsive {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold;
+  }
+
+  /* Better spacing for content to prevent overlap with footer */
+  .content-with-footer {
+    @apply pb-24 sm:pb-28 md:pb-32;
+  }
+
+  /* Improved card contrast for accessibility */
+  .card-item {
+    @apply bg-app-dark-card border border-app-card-border rounded-lg p-3 sm:p-4 md:p-6 transition-all duration-200 focus-visible:outline-brand-blue focus-visible:outline-2 focus-visible:outline-offset-2;
+  }
+
+  .card-item-selected {
+    @apply bg-app-dark-card border-2 border-brand-blue rounded-lg p-3 sm:p-4 md:p-6 transition-all duration-200 focus-visible:outline-brand-blue focus-visible:outline-2 focus-visible:outline-offset-2;
+  }
+
+  /* Improved button styles with better focus states */
+  .primary-button {
+    @apply bg-brand-blue hover:bg-brand-blue-dark focus:bg-brand-blue-dark text-white rounded-md py-2 px-3 sm:py-3 sm:px-4 flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-app-dark text-sm sm:text-base;
+  }
+
+  .secondary-button {
+    @apply bg-gray-700 hover:bg-gray-600 focus:bg-gray-600 text-white rounded-md py-2 px-3 sm:py-3 sm:px-4 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-app-dark text-sm sm:text-base shadow-sm;
+  }
+
+  /* Toggle and selection components with enhanced contrast */
+  .toggle-field {
+    @apply relative inline-flex h-5 sm:h-6 w-9 sm:w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-app-dark-border transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2;
+  }
+
+  .toggle-field[aria-checked="true"] {
+    @apply bg-brand-blue;
+  }
+
+  .toggle-field-dot {
+    @apply pointer-events-none inline-block h-4 sm:h-5 w-4 sm:w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out translate-x-0;
+  }
+
+  .toggle-field[aria-checked="true"] .toggle-field-dot {
+    @apply translate-x-4 sm:translate-x-5;
+  }
+
+  /* Improved accessibility for calendar days */
+  .calendar-day {
+    @apply w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center mx-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 text-sm sm:text-base;
+  }
+
+  /* High contrast tooltip for better visibility */
+  .tooltip {
+    @apply z-50 overflow-hidden rounded-md bg-app-dark-card border border-app-dark-border px-3 py-1.5 text-xs sm:text-sm text-app-active-text shadow-md;
+  }
+
+  /* Responsive grid layouts */
+  .responsive-grid-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6;
+  }
+
+  .responsive-grid-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6;
+  }
+
+  /* Additional responsive utilities */
+  .responsive-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .responsive-spacing {
+    @apply py-4 sm:py-6 md:py-8 lg:py-10;
+  }
+
+  .responsive-text-sm {
+    @apply text-xs sm:text-sm md:text-base;
+  }
+
+  .responsive-text-lg {
+    @apply text-base sm:text-lg md:text-xl;
+  }
+
+  /* Responsive padding for sections */
+  .section-padding {
+    @apply py-8 sm:py-12 md:py-16 lg:py-20;
+  }
+
+  /* Improved spacing between form elements on small screens */
+  .form-group {
+    @apply mb-4 sm:mb-6;
+  }
+
+  /* Extra small screens utility */
+  .xs\:block {
+    @screen xs {
+      display: block;
+    }
+  }
+
+  .xs\:hidden {
+    @screen xs {
+      display: none;
+    }
+  }
+
+  .xs\:inline-block {
+    @screen xs {
+      display: inline-block;
+    }
+  }
+}
